@@ -18,30 +18,31 @@
     <div class="card">
         <div class="card-body">
             <div class="col-md-8">
-                <form th:action="@{/patients/add}" th:object="${patient}" th:method="post">
+                <form action="#" th:action="@{/patients/update/{id}(id=${patient.id})}" th:object="${patient}"
+                      method="post">
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="firstName" class="col-form-label">First Name</label> <input type="text" th:field="*{firstName}"
-                                                                                                    class="form-control" id="firstName"
-                                                                                                    placeholder="First Name"> <span
+                                                                                         class="form-control" id="firstName"
+                                                                                         placeholder="Name"> <span
                                 th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="surname" class="col-form-label">Surname</label> <input type="text" th:field="*{surname}"
-                                                                                               class="form-control" id="surname"
-                                                                                               placeholder="Surname"> <span
+                                                                                         class="form-control" id="surname"
+                                                                                         placeholder="surname"> <span
                                 th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="registerDate" class="col-form-label">Register Date</label> <input type="date" th:field="*{registerDate}"
-                                                                                                         class="form-control" id="registerDate"
-                                                                                                         placeholder="Register Date"> <span
+                            <label for="registerDate" class="col-form-label">registerDate</label> <input type="text" th:field="*{registerDate}"
+                                                                                         class="form-control" id="registerDate"
+                                                                                         placeholder="registerDate"> <span
                                 th:if="${#fields.hasErrors('registerDate')}" th:errors="*{registerDate}" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="age" class="col-form-label">Age</label> <input type="text" th:field="*{age}"
-                                                                                       class="form-control" id="age"
-                                                                                       placeholder="Age"> <span
+                            <label for="age" class="col-form-label">age</label> <input type="text" th:field="*{age}"
+                                                                                         class="form-control" id="age"
+                                                                                         placeholder="age"> <span
                                 th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-8">
@@ -49,15 +50,15 @@
                                                                                            th:field="*{email}"
                                                                                            class="form-control"
                                                                                            id="email"
-                                                                                           placeholder="Email"> <span
+                                                                                           placeholder="email"> <span
                                 th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-8">
                             <label for="phone" class="col-form-label">Phone No</label> <input type="text"
-                                                                                              th:field="*{phone}"
-                                                                                              class="form-control"
-                                                                                              id="phone"
-                                                                                              placeholder="Phone Number">
+                                                                                                th:field="*{phone}"
+                                                                                                class="form-control"
+                                                                                                id="phone"
+                                                                                                placeholder="phone">
                             <span th:if="${#fields.hasErrors('phone')}" th:errors="phone"
                                   class="text-danger"></span>
                         </div>
