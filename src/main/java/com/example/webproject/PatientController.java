@@ -1,6 +1,5 @@
 package com.example.webproject;
 
-import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -16,7 +15,6 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/patients/")
-@Log
 public class PatientController {
     private final PatientRepository patientRepository;
 
@@ -96,7 +94,6 @@ public class PatientController {
             return "addPatient";
         }else{
             patientRepository.save(patient);
-            log.info("Patient Created");
             return "redirect:list";
         }
 
