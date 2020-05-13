@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en" xmlns:spring="http://www.w3.org/1999/XSL/Transform" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title th:text="#{msg.patients}"></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title th:text="#{greeting}"></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+              integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    </head>
 </head>
-
 <body>
-<div class="container my-2">
+
+
+<div class="container my-5">
+    <h1 th:text="#{greeting}"></h1>
     <div class="card">
         <div class="card-body">
             <span th:text="#{lang.change}"></span>:
@@ -21,59 +25,29 @@
                 <option value="en" th:text="#{lang.eng}"></option>
                 <option value="tr" th:text="#{lang.tr}"></option>
             </select>
-            <div th:switch="${patients}" class="container my-5">
-                <p class="my-5">
-                    <a href="/patients/signup" class="btn btn-primary"><i
-                            class="fas fa-user-plus ml-2" th:text="#{msg.addpatient}"></i></a>
-                </p>
-                <div class="col-md-10">
-                    <h2 th:case="null" th:text="#{msg.nopatient}"></h2>
-                    <div th:case="*">
-                        <table class="table table-striped table-responsive-md">
-                            <thead>
-                            <tr>
-                                <th th:text="#{msg.name}"></th>
-                                <th th:text="#{msg.surname}"></th>
-                                <th th:text="#{msg.registerdate}"></th>
-                                <th th:text="#{msg.age}"></th>
-                                <th th:text="#{msg.email}"></th>
-                                <th th:text="#{msg.phoneno}"></th>
-                                <th th:text="#{msg.edit}"></th>
-                                <th th:text="#{msg.delete}"></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:each="patient : ${patients}">
-                                <td th:text="${patient.firstName}"></td>
-                                <td th:text="${patient.surname}"></td>
-                                <td th:text="${patient.registerDate}"></td>
-                                <td th:text="${patient.age}"></td>
-                                <td th:text="${patient.email}"></td>
-                                <td th:text="${patient.phone}"></td>
-                                <td><a th:href="@{/patients/edit/{id}(id=${patient.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
-                                <td><a th:href="@{/patients/delete/{id}(id=${patient.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
+            <div class="col-md-8">
+                <h1>
+                    <spring:message code="greeting" text="default"/>
+                </h1>
             </div>
+            <p class="my-5">
+                <a href="/patients/patientlist" class="btn btn-primary"><i
+                        class="fas fa-user-plus ml-2" th:text="#{msg.addpatient}"></i></a>
+            </p>
         </div>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
 </script>
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
         $("#locales").change(function () {
             var selectedOption = $('#locales').val();
-            if (selectedOption !== ''){
+            if (selectedOption !== '') {
                 window.location.replace('?lang=' + selectedOption);
             }
         });
     });
 </script>
 </body>
-
 </html>

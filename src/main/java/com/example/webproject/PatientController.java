@@ -32,12 +32,15 @@ public class PatientController {
         binder.addValidators(customValidationController);
     }
 
-    @GetMapping("/")
-    public String getIndex(Model model){
-        return "index";
+    @GetMapping("patientlist")
+    public String getPatientList(Model model){
+        return "patientList";
     }
 
-    
+    @GetMapping("/")
+    public String getIndex() {
+        return "index";
+    }
     @Bean
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource
@@ -64,7 +67,7 @@ public class PatientController {
     @GetMapping("list")
     public String showUpdateForm(Model model) {
         model.addAttribute("patients", patientRepository.findAll());
-        return "index";
+        return "patientList";
     }
 
     @GetMapping("edit/{id}")
@@ -84,7 +87,7 @@ public class PatientController {
 
         patientRepository.save(patient);
         model.addAttribute("patients", patientRepository.findAll());
-        return "index";
+        return "patientList";
     }
 
 
@@ -105,6 +108,6 @@ public class PatientController {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid Patient Id:" + id));
         patientRepository.delete(patient);
         model.addAttribute("patients", patientRepository.findAll());
-        return "index";
+        return "patientList";
     }
 }
