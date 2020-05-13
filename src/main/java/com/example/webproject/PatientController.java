@@ -37,7 +37,7 @@ public class PatientController {
         return "index";
     }
 
-
+    
     @Bean
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource

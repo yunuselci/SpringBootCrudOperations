@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Update User</title>
+    <title th:text="#{msg.addpatient}"></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -14,56 +14,56 @@
 
 <body>
 <div class="container my-5">
-    <h3> Update Patient</h3>
+    <h3 th:text="#{msg.addpatient}"></h3>
     <div class="card">
         <div class="card-body">
             <div class="col-md-8">
                 <form th:action="@{/patients/add}" th:object="${patient}" th:method="post">
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="firstName" class="col-form-label">First Name</label> <input type="text" th:field="*{firstName}"
+                            <label for="firstName" class="col-form-label" th:text="#{msg.firstname}"></label> <input type="text" th:field="*{firstName}"
                                                                                                     class="form-control" id="firstName"
-                                                                                                    placeholder="First Name"> <span
+                                                                                                    th:placeholder="#{msg.firstname}"> <span
                                 th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="surname" class="col-form-label">Surname</label> <input type="text" th:field="*{surname}"
+                            <label for="surname" class="col-form-label" th:text="#{msg.surname}"></label> <input type="text" th:field="*{surname}"
                                                                                                class="form-control" id="surname"
-                                                                                               placeholder="Surname"> <span
+                                                                                               th:placeholder="#{msg.surname}"> <span
                                 th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="registerDate" class="col-form-label">Register Date</label> <input type="date" th:field="*{registerDate}"
+                            <label for="registerDate" class="col-form-label" th:text="#{msg.registerdate}"></label> <input type="date" th:field="*{registerDate}"
                                                                                                          class="form-control" id="registerDate"
-                                                                                                         placeholder="Register Date"> <span
+                                                                                                         th:placeholder="#{msg.registerdate}"> <span
                                 th:if="${#fields.hasErrors('registerDate')}" th:errors="*{registerDate}" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="age" class="col-form-label">Age</label> <input type="text" th:field="*{age}"
+                            <label for="age" class="col-form-label" th:text="#{msg.age}"></label> <input type="text" th:field="*{age}"
                                                                                        class="form-control" id="age"
-                                                                                       placeholder="Age"> <span
+                                                                                       th:placeholder="#{msg.age}"> <span
                                 th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-8">
-                            <label for="email" class="col-form-label">Email</label> <input type="text"
+                            <label for="email" class="col-form-label" th:text="#{msg.email}"></label> <input type="text"
                                                                                            th:field="*{email}"
                                                                                            class="form-control"
                                                                                            id="email"
-                                                                                           placeholder="Email"> <span
+                                                                                           th:placeholder="#{msg.email}"> <span
                                 th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-8">
-                            <label for="phone" class="col-form-label">Phone No</label> <input type="text"
+                            <label for="phone" class="col-form-label" th:text="#{msg.phoneno}"></label> <input type="text"
                                                                                               th:field="*{phone}"
                                                                                               class="form-control"
                                                                                               id="phone"
-                                                                                              placeholder="Phone Number">
+                                                                                              th:placeholder="#{msg.phoneno}">
                             <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"
                                   class="text-danger"></span>
                         </div>
 
                         <div class="form-group col-md-8">
-                            <input type="submit" class="btn btn-primary" value="Add Patient">
+                            <input type="submit" class="btn btn-primary" th:value="#{msg.addpatient}">
                         </div>
                     </div>
                 </form>
